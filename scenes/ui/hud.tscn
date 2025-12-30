@@ -1,0 +1,248 @@
+[gd_scene load_steps=15 format=3 uid="uid://br0u2gvc7llyi"]
+
+[ext_resource type="Script" uid="uid://dafua7pvxb1p4" path="res://scripts/ui/hud.gd" id="1_0mwgc"]
+[ext_resource type="FontFile" uid="uid://djg6rrq5j3t3a" path="res://assets/fonts/StackedPixels.ttf" id="2_hqnrr"]
+[ext_resource type="FontFile" uid="uid://bwc2yki1k4wud" path="res://assets/fonts/BoldPixels.otf" id="3_bo48s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wh2we"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mwgc"]
+bg_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh2we"]
+bg_color = Color(0.154876, 0.154876, 0.154876, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 0.27451)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqnrr"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oj5la"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gss2c"]
+content_margin_top = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h022r"]
+content_margin_top = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hqnrr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bo48s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_136eg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qguk"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mwgc")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 1
+layout_mode = 1
+offset_left = 10.0
+offset_top = 15.0
+offset_right = 210.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_wh2we")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0mwgc")
+value = 60.0
+show_percentage = false
+
+[node name="DamageBar" type="ProgressBar" parent="HealthBar"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_wh2we")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hqnrr")
+value = 80.0
+show_percentage = false
+
+[node name="DamageTakenTimer" type="Timer" parent="HealthBar"]
+wait_time = 0.3
+one_shot = true
+
+[node name="ScoreSection" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.117
+anchor_right = 0.1
+anchor_bottom = 0.117
+offset_left = -55.0
+offset_top = -11.12
+offset_right = 53.0
+offset_bottom = 4.88
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oj5la")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScoreSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyLabel" type="Label" parent="ScoreSection/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gss2c")
+text = "SCORE:"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="ScoreSection/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h022r")
+text = "0000"
+vertical_alignment = 1
+
+[node name="LevelTitleSection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -80.0
+offset_right = 230.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hqnrr")
+
+[node name="LevelTitleLabel" type="Label" parent="LevelTitleSection"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ObjectivesSection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -255.0
+offset_top = 15.0
+offset_right = -10.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bo48s")
+
+[node name="ObjectivesLabel" type="RichTextLabel" parent="ObjectivesSection"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_hqnrr")
+theme_override_font_sizes/normal_font_size = 14
+horizontal_alignment = 2
+
+[node name="LevelHintSection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.383
+anchor_right = 0.5
+anchor_bottom = 0.383
+offset_left = -230.0
+offset_top = -37.88
+offset_right = 230.0
+offset_bottom = 38.12
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_136eg")
+
+[node name="LevelHintLabel" type="RichTextLabel" parent="LevelHintSection"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.066
+offset_bottom = -0.0160065
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 5
+theme_override_fonts/normal_font = ExtResource("3_bo48s")
+theme_override_font_sizes/normal_font_size = 20
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="ButtonsSection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.211
+anchor_top = 0.953
+anchor_right = 0.211
+anchor_bottom = 0.953
+offset_left = -86.04
+offset_top = -17.08
+offset_right = 71.96
+offset_bottom = 16.92
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8qguk")
+
+[node name="PauseLabel" type="Label" parent="ButtonsSection"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.392
+anchor_bottom = 1.0
+offset_right = 0.0639954
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 14
+text = "[P] Pausar"
+vertical_alignment = 1
+
+[node name="InteractLabel" type="Label" parent="ButtonsSection"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.519
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.0019989
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_hqnrr")
+theme_override_font_sizes/font_size = 14
+text = "[E] Interagir"
+vertical_alignment = 1
+
+[connection signal="timeout" from="HealthBar/DamageTakenTimer" to="." method="_on_damage_taken_timer_timeout"]

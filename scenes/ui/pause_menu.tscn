@@ -1,0 +1,199 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkh13g2skkjkj"]
+
+[ext_resource type="Script" uid="uid://8ghhwo75edb8" path="res://scripts/ui/pause_menu.gd" id="1_k23cl"]
+[ext_resource type="FontFile" uid="uid://djg6rrq5j3t3a" path="res://assets/fonts/StackedPixels.ttf" id="1_xld5c"]
+[ext_resource type="FontFile" uid="uid://bwc2yki1k4wud" path="res://assets/fonts/BoldPixels.otf" id="2_f6eus"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6eus"]
+bg_color = Color(0.114897, 0.114897, 0.114897, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.899231, 0.899231, 1)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k23cl")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausedLabel" type="Label" parent="Panel"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.351
+anchor_right = 0.5
+anchor_bottom = 0.351
+offset_left = -116.5
+offset_top = -16.36
+offset_right = 116.5
+offset_bottom = 16.64
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 40
+text = "JOGO PAUSADO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.953
+anchor_right = 0.503
+anchor_bottom = 0.953
+offset_left = -272.92
+offset_top = -17.08
+offset_right = 273.08
+offset_bottom = 16.92
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="UnpauseLabel" type="Label" parent="Panel/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xld5c")
+theme_override_font_sizes/font_size = 14
+text = "[P] Despausar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="Panel/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xld5c")
+theme_override_font_sizes/font_size = 14
+text = "[C] MOSTRAR CONTROLES"
+
+[node name="WindowModeLabel" type="Label" parent="Panel/HBoxContainer"]
+visible = false
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xld5c")
+theme_override_font_sizes/font_size = 14
+text = "[F] ALTERNAR MODO DE TELA"
+vertical_alignment = 1
+
+[node name="ControlsSection" type="Panel" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.501
+anchor_top = 0.662
+anchor_right = 0.501
+anchor_bottom = 0.662
+offset_left = -217.64
+offset_top = -72.32
+offset_right = 217.36
+offset_bottom = 72.68
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6eus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ControlsSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ControlsLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0.405185, 1, 0.997495, 1)
+theme_override_fonts/font = ExtResource("1_xld5c")
+theme_override_font_sizes/font_size = 20
+text = "CONTROLES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ControlsSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="AttackLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[Q] ATACAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ParryLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[W] PARRY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InteractLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[E] INTEREAGIR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/ControlsSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MoveLeftLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer2"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[SETA ESQUERDA ou J] CORRER PARA ESQUERDA"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/ControlsSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="MoveRightLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer3"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[SETA DIREITA ou L] CORRER PARA DIREITA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/ControlsSection/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="JumpLabel" type="Label" parent="Panel/ControlsSection/VBoxContainer/HBoxContainer4"]
+texture_filter = 2
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_f6eus")
+theme_override_font_sizes/font_size = 16
+text = "[ESPAÇO] PULO/PULO DUPLO"
+horizontal_alignment = 1
+vertical_alignment = 1
