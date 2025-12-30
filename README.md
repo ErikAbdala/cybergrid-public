@@ -119,6 +119,13 @@ Este repositório **não inclui**:
 
 Esses recursos foram obtidos a partir de assets pagos, licenciados apenas para uso no projeto original. O foco deste repositório é exclusivamente o **código, sua estrutura, lógica e implementação**.
 
+## ▶️ Versões Jogáveis
+
+Para fins de validação experimental e demonstração do projeto, o jogo foi disponibilizado em **duas versões distintas**, hospedadas na plataforma [itch.io](https://itch.io/) e executáveis diretamente no navegador. Essas versões foram utilizadas durante a etapa de testes com jogadores e representam abordagens diferentes de balanceamento de dificuldade:
+
+- **Versão A (Com dificuldade fixa):** https://erik-abdala.itch.io/cybergrid-a
+- **Versão B (Com dificuldade adaptativa):** https://erik-abdala.itch.io/cybergrid-b
+
 ## Créditos
 
 Projeto desenvolvido como parte do **Trabalho de Conclusão de Curso (TCC)** em **Ciência da Computação** no **IFSULDEMINAS - Campus Muzambinho**, sob orientação do **Prof. Ricardo José Martins**.
